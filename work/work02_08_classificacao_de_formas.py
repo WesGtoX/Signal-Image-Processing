@@ -20,10 +20,6 @@ Engenharia da Computação - 2021.01
 ### Imports
 """
 
-import math
-import csv
-import glob
-
 import cv2 as cv
 import numpy as np
 import pandas as pd
@@ -32,7 +28,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import accuracy_score
 
 """### Code
 
