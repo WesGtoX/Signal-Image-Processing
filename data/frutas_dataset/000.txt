@@ -1,0 +1,11 @@
+Ini		Fim		Classe
+001		030		Maça
+031		060		Abacaxi
+061		090		Banana
+091		120		Pêssego
+121		150		Pitanga
+151		180		Laranja
+181		210		Morango
+211		240		Pera
+241		270		Limão
+271		300		Uva
