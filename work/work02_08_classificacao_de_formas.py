@@ -99,8 +99,9 @@ for start, end, classes in classification:
         dataset['Eccentricity'].append(float(eccentricity))
 
         # extrair retangularidade
-        compactness = np.square(perimeter / area)
-        dataset['Rectangularity'].append(float(compactness))
+        x, y, width, height = cv.boundingRect(contour[0])
+        rectangularity = area / (width * height)
+        dataset['Rectangularity'].append(float(rectangularity))
 
         # extrair solidez
         area_obj = cv.contourArea(contour[0])
@@ -117,7 +118,7 @@ df.head()
 
 # extrair label de classificacao
 labels = df['Classes'].astype('category').cat.categories.tolist()
-labels_to_replace = {'Classes' : {k: v for k,v in zip(labels, list(range(1, len(labels) + 1)))}}
+labels_to_replace = {'Classes' : {k: v for k, v in zip(labels, list(range(1, len(labels) + 1)))}}
 print(labels_to_replace)
 
 # substituir label texto de classificacao para numerico
@@ -151,7 +152,8 @@ Y = knn.predict(X_test)
 
 # resultado
 acc = accuracy_score(y_test, Y)
-print(f'Accuracy {acc:.2f}\n')
+print(f'Accuracy {acc:.2f} or {acc * 100:.0f}%\n')
 
 # Matriz confusao
 print(pd.crosstab(y_test, Y, rownames=['True'], colnames=['Predicao'], margins=True))
+
