@@ -18,7 +18,7 @@
 
 ## About the Project
 
-...
+Image processing with Python and OpenCV.
 
 Made in College.
 
